@@ -1,7 +1,15 @@
 import React from "react"
 
-const Btn = ({title}) => {
-  return <button className="btn">{title}</button>
+const Btn = ({text, color, toggleForm}) => {
+  return (
+    <button
+      className="btn"
+      style={{backgroundColor: color}}
+      onClick={toggleForm}
+    >
+      {text}
+    </button>
+  )
 }
 
 export default Btn

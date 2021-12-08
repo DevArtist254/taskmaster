@@ -19,6 +19,10 @@ function App() {
     },
   ])
 
+  const [style, updateStyle] = useState({
+    display: true,
+  })
+
   const addTask = ({...newTask}) => {
     setTasks([...tasks, newTask])
   }
@@ -36,10 +40,14 @@ function App() {
     )
   }
 
+  const onToggleForm = () => {
+    return updateStyle({display: !style.display})
+  }
+
   return (
     <div className="container">
-      <Header />
-      <AddTask addTask={addTask} />
+      <Header toggleForm={onToggleForm} addForm={style.display} />
+      <AddTask addTask={addTask} addForm={style.display ? "none" : "block"} />
       <Tasks tasks={tasks} removeTask={removeTask} onToggle={reminderUpdater} />
     </div>
   )

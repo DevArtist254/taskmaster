@@ -1,6 +1,6 @@
 import {useState} from "react"
 
-const AddTask = ({addTask}) => {
+const AddTask = ({addTask, addForm}) => {
   const [text, setText] = useState("")
   const [day, setDay] = useState("")
   const [reminder, setReminder] = useState(false)
@@ -21,7 +21,7 @@ const AddTask = ({addTask}) => {
   }
 
   return (
-    <form className="add-form" onSubmit={onSubmit}>
+    <form className="add-form" onSubmit={onSubmit} style={{display: addForm}}>
       <div className="form-control">
         <label>Add a task</label>
         <input
